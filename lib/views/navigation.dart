@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
+import 'profile_page.dart';
+import 'history_page.dart';
+import 'cart_page.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -14,10 +17,9 @@ class _MainNavigationState extends State<MainNavigation> {
 
   final List<Widget> _pages = [
     HomePage(),
-    const Center(
-      child: Text('Halaman Riwayat Sewa', style: TextStyle(fontSize: 18)),
-    ),
-    const Center(child: Text('Profil Saya', style: TextStyle(fontSize: 18))),
+    const CartPage(),
+    const HistoryPage(),
+    const ProfilePage(),
   ];
 
   @override
@@ -32,8 +34,15 @@ class _MainNavigationState extends State<MainNavigation> {
           });
         },
         selectedItemColor: Colors.indigo,
+        // unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Keranjang',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Riwayat'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
         ],
